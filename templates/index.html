@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="Jamie Miller">
+  <meta name="description" content="An example full-stack web-visualization project.">
+  <title>Belly Button Biodiversity Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 jumbotron text-left">
+        <h2><strong>Belly Button Biodiversity Dashboard</strong></h2>
+        <p>The common skin bacteria encountered in the Belly Button Biodiversity Project
+        are shown to the right and belong to the groups:
+          <ul>
+            <li>Corynebacteria</li>
+            <li>Staphylococci</li>
+            <li>Actinobacteria</li>
+            <li>Clostridiales</li>
+            <li>Bacilli</li>
+          </ul>          
+        </p>
+        <p>The bateria found in each sample was grouped into
+        one of 3,674 Operational Taxonomic Units (OTUs)</p> 
+        <b></b>
+        <p>Use the charts below to explore the bacteria found in each sample</p>
+      </div>
+      <div class=" col-md-4">
+          <img src="/static/images/belly-button-sample.jpg" alt="Sample being taken" width="600" height="400"> 
+      </div>
+    </div>
+    
+     
+    <div class="row">
+
+        <!-- Sample MetaData Panel-->
+        <div class="col-md-2">
+          <div class="well">
+            <h4>SELECT Sample:</h4>
+            <select id="selDataset" onchange="optionChanged(this.value)"></select>
+          </div>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h4 class="panel-title">Sample MetaData</h4>
+            </div>
+            <div id="sample-metadata" class="panel-body">           
+            </div>
+          </div>
+        </div>    
+        <!-- Sample Pie Chart-->
+        <div class="col-md-5">
+          <div id="pie">
+
+          </div>
+        </div>
+
+        <!-- Sample Gauge Chart-->
+        <div class="col-md-5">
+          <div id="gauge">
+
+          </div>
+        </div>
+
+    </div>
+
+    <!-- Sample Bubble Chart-->
+    <div class="row">
+      <div class="col-md-12">
+        <div id="bubble">
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Section -->
+<footer>
+  <div class="footer text-center">
+    <h5>Dashboard Created August 2019 - Lead Analyst: Jamie Miller</h5>
+  </div>
+</footer>
+
+   <!-- Plotly JS-->
+  <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script> 
+
+  <!-- links to JS files in the Static Folder-->  
+  <script src="{{ url_for('static', filename='js/bonus.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+
+</html>
